@@ -12,7 +12,6 @@ const SidebarAside = styled.aside`
    margin-left: 4rem;
    background-color: var(--color-grey-light-2);
 `;
-0;
 
 const LocationArticle = styled.article`
    height: 13rem;
@@ -27,7 +26,6 @@ const LocationArticle = styled.article`
 const DateArticle = styled.article`
    display: grid;
    grid-template-columns: 1fr 1fr;
-   /* grid-template-rows: repeat(3, 1fr); */
    height: 19rem;
    padding: var(--sidebar-article-padding);
    border-bottom: 1px solid var(--color-grey-light-3);
@@ -37,37 +35,53 @@ const DateArticle = styled.article`
    input {
       ${inputSelectField};
       width: max-content;
-
-      /* height: 4rem;
-      width: 17rem;
-      font-family: Roboto;
-      font-size: var(--font-paragraph-size); */
-      /* line-height: var(--font-paragraph-size); */
-      /* align-self: center; */
    }
 `;
 
 const CategoriesArticle = styled.article`
    height: 22.5rem;
    padding: var(--sidebar-article-padding);
+
+   div {
+      line-height: var(--font-subtitle-size);
+      input[type="checkbox"] {
+         /* display: none; */
+      }
+      label {
+         cursor: pointer;
+         span {
+            /* margin-left: -2rem; */
+            padding-right: 1rem;
+            display: inline-block;
+            height: var(--font-paragraph-size);
+            width: var(--font-paragraph-size);
+            background: var(--color-white);
+            border-radius: 3px;
+
+            &::before {
+               content: "\u2714";
+               /* display: block; */
+               position: absolute;
+               line-height: var(--font-paragraph-size);
+               width: inherit;
+               height: inherit;
+               border-radius: inherit;
+               color: var(--color-white);
+               padding-left: 1px;
+               background-color: var(--color-secondary);
+               opacity: 0;
+               transition: all 0.2s;
+            }
+         }
+      }
+      input:checked + label span::before {
+         opacity: 1;
+      }
+   }
 `;
 
-// const Input = styled.input`
-//    height: 4rem;
-//    width: 17rem;
-//    font-family: Roboto;
-//    /* font-size: var(--font-paragraph-size); */
-//    /* line-height: var(--font-paragraph-size); */
-//    align-self: center;
-
-//    /* padding-left: 1rem; */
-// `;
-const Span = styled.span`
-   display: grid;
-
-   box-decoration-break: clone;
-   justify-self: flex-end;
-   text-align: end;
+const Label = styled.label`
+   /* grid-gap: 1rem; */
 `;
 
 const SBSubtitle = styled(Subtitle)`
@@ -87,13 +101,34 @@ const SideBar = props => (
       </LocationArticle>
       <DateArticle>
          <SBSubtitle>Date</SBSubtitle>
-         <span>from</span>
-         <input type="date" value="1980-08-26" />
-         <span>to</span>
-         <input type="date" value="1980-08-26" />
+         <label for="from">from</label>
+         <input type="date" value="1980-08-26" name="from" />
+         <label for="to">to</label>
+         <input type="date" value="1980-08-26" name="to" />
       </DateArticle>
       <CategoriesArticle>
          <Subtitle>Categories</Subtitle>
+         <div>
+            <input type="checkbox" name="name1" id="" />
+            <label htmlFor="name1">
+               <span>&nbsp;</span>
+               All
+            </label>
+         </div>
+         <div>
+            <input type="checkbox" name="name2" id="" />
+            <label htmlFor="name2">
+               <span>&nbsp;</span>
+               Entertainment
+            </label>
+         </div>
+         <div>
+            <input type="checkbox" name="name3" id="" />
+            <label htmlFor="name3">
+               <span>&nbsp;</span>
+               Food
+            </label>
+         </div>
       </CategoriesArticle>
       {/* {props.children} */}
    </SidebarAside>

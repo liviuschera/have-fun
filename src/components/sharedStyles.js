@@ -6,4 +6,5 @@ export const inputSelectField = css`
    font-size: var(--font-paragraph-size);
    border: none;
    padding-left: 0.5rem;
+   outline-color: var(--color-primary);
 `;
