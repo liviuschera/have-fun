@@ -8,6 +8,7 @@ const SidebarAside = styled.aside`
    align-self: flex-start;
    align-content: flex-start;
    align-items: flex-start;
+   grid-column: 1/2;
    width: var(--sidebar-width);
    margin-left: 4rem;
    background-color: var(--color-grey-light-2);
@@ -45,7 +46,7 @@ const CategoriesArticle = styled.article`
    div {
       line-height: var(--font-subtitle-size);
       input[type="checkbox"] {
-         /* display: none; */
+         display: none;
       }
       label {
          cursor: pointer;
@@ -109,21 +110,21 @@ const SideBar = props => (
       <CategoriesArticle>
          <Subtitle>Categories</Subtitle>
          <div>
-            <input type="checkbox" name="name1" id="" />
+            <input type="checkbox" name="name1" id="name1" />
             <label htmlFor="name1">
-               <span>&nbsp;</span>
+               <span />
                All
             </label>
          </div>
          <div>
-            <input type="checkbox" name="name2" id="" />
+            <input type="checkbox" name="name2" id="name2" />
             <label htmlFor="name2">
                <span>&nbsp;</span>
                Entertainment
             </label>
          </div>
          <div>
-            <input type="checkbox" name="name3" id="" />
+            <input type="checkbox" name="name3" id="name3" />
             <label htmlFor="name3">
                <span>&nbsp;</span>
                Food

@@ -5,6 +5,8 @@ import sprite from "../images/sprite.svg";
 
 const HeaderDiv = styled.header`
    display: inline-grid;
+   grid-column: 1/-1;
+   /* grid-row: 1/2; */
    height: var(--header-height);
    width: 100%;
    background-color: var(--color-primary);
