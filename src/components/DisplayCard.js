@@ -8,7 +8,7 @@ const Card = styled.div`
    /* grid-column: 2/3; */
    height: 22rem;
    width: 78rem;
-   background-color: salmon;
+   background-color: seashell;
 `;
 
 const DisplayCard = () => {

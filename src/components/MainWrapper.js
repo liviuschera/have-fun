@@ -2,17 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import { Subtitle, Paragraph, Remark } from "./typography";
 
-const Wrapper = styled.div`
+const Wrapper = styled.main`
    display: grid;
-   /* grid-row: 2/; */
    grid-column: 2/3;
-   /* height: 22rem; */
+   /* grid-gap: 2.4rem; */
+   /* grid-template-rows: 10rem repeat(3, 1fr); */
+   /* grid-template-rows: 10rem 1fr; */
+
+   /* height: 100%; */
    width: 78rem;
-   background-color: gold;
+   background-color: beige;
 `;
 
-const MainWrapper = () => {
-   return <Wrapper>card</Wrapper>;
+const MainWrapper = props => {
+   return <Wrapper>{props.children}</Wrapper>;
 };
 
 export default MainWrapper;

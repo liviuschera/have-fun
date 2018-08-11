@@ -7,6 +7,7 @@ import DisplayCard from "../components/DisplayCard";
 import ContentWrapper from "../components/ContentWrapper";
 import MainWrapper from "../components/MainWrapper";
 import NavInfoBar from "../components/NavInfoBar";
+import Pagination from "../components/Pagination";
 
 const Wrapper = styled.div`
    display: grid;
@@ -33,6 +34,7 @@ class App extends Component {
                   <DisplayCard>Card</DisplayCard>
                   <DisplayCard>Card</DisplayCard>
                </ContentWrapper>
+               <Pagination>Links</Pagination>
             </MainWrapper>
          </Wrapper>
       );
