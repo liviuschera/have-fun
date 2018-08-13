@@ -34,7 +34,7 @@ class App extends Component {
                   <DisplayCard>Card</DisplayCard>
                   <DisplayCard>Card</DisplayCard>
                </ContentWrapper>
-               <Pagination>Links</Pagination>
+               <Pagination />
             </MainWrapper>
          </Wrapper>
       );
