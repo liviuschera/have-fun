@@ -22,6 +22,7 @@ export const Label = styled.label`
 
 export const Paragraph = styled.p`
    font-size: var(--font-paragraph-size);
+   /* line-height: 1.5; */
 `;
 export const Remark = styled.p`
    font-size: var(--font-remark-size);

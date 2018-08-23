@@ -3,7 +3,7 @@ import styled from "styled-components";
 import "./App.css";
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
-import DisplayCard from "../components/DisplayCard";
+import Card from "../components/Card";
 import ContentWrapper from "../components/ContentWrapper";
 import MainWrapper from "../components/MainWrapper";
 import NavInfoBar from "../components/NavInfoBar";
@@ -30,9 +30,9 @@ class App extends Component {
             <MainWrapper>
                <NavInfoBar>NavBar</NavInfoBar>
                <ContentWrapper>
-                  <DisplayCard>Card</DisplayCard>
-                  <DisplayCard>Card</DisplayCard>
-                  <DisplayCard>Card</DisplayCard>
+                  <Card>Card</Card>
+                  <Card>Card</Card>
+                  <Card>Card</Card>
                </ContentWrapper>
                <Pagination />
             </MainWrapper>

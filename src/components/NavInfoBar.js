@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Subtitle, Paragraph, Remark } from "./typography";
 
 const Wrapper = styled.nav`
    align-self: center;

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Subtitle, Paragraph, Remark } from "./typography";
+import { Subtitle } from "./typography";
 import { inputSelectField } from "../components/sharedStyles";
 
 const SidebarAside = styled.aside`
