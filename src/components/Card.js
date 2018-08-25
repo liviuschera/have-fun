@@ -10,20 +10,27 @@ const Card = styled.div`
    width: 78rem;
    background-color: seashell;
    grid-template-columns: var(--card-height) 1fr;
-   grid-column-gap: 2rem;
+   /* grid-column-gap: 2rem; */
    img {
       height: var(--card-height);
       width: var(--card-height);
    }
-   div {
-   }
+`;
+
+const CardContent = styled.div`
+   margin: 2.4rem 2rem;
 `;
 
 const Row = styled.div`
-   position: relative;
+   /* position: relative; */
+   padding: 0;
+   margin: 0;
    display: flex;
    justify-items: start;
-   /* margin-top: 1rem; */
+   /* margin-top: 2rem; */
+   &:not(:last-child) {
+      margin-bottom: var(--font-paragraph-size);
+   }
 `;
 
 const EventName = styled(Paragraph)`
@@ -68,13 +75,15 @@ const DisplayCard = () => {
    return (
       <Card>
          <img src={`${CardImage}`} alt="Card " />
-         <div>
+         <CardContent>
             <CardHeader>Some Title</CardHeader>
-            <Paragraph>
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
-               hic eum nulla nemo facere molestias sint omnis quam quo. Officia,
-               cumque quo.
-            </Paragraph>
+            <Row>
+               <Paragraph>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Eveniet hic eum nulla nemo facere molestias sint omnis quam
+                  quo. Officia, cumque quo.
+               </Paragraph>
+            </Row>
             <Row>
                <EventName>Event name</EventName>
                <LabelType>Label</LabelType>
@@ -93,7 +102,7 @@ const DisplayCard = () => {
                </Span>
                <EventInfo>EventDate</EventInfo>
             </Row>
-         </div>
+         </CardContent>
       </Card>
    );
 };

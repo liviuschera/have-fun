@@ -33,9 +33,14 @@ const DateArticle = styled.article`
    align-content: center;
    grid-gap: 0.5rem;
 
+   label{
+      line-height: 4rem;
+   }
+
    input {
       ${inputSelectField};
       width: max-content;
+      line
    }
 `;
 
@@ -51,7 +56,9 @@ const CategoriesArticle = styled.article`
       label {
          cursor: pointer;
          span {
-            /* margin-left: -2rem; */
+            /* position: relative; */
+            /* margin-left: 2rem; */
+            margin-right: 0.6rem;
             padding-right: 1rem;
             display: inline-block;
             height: var(--font-paragraph-size);
