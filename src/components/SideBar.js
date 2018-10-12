@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Subtitle } from "./typography";
 import { inputSelectField } from "../components/sharedStyles";
+import { trueTypeOf } from "./utils";
 
 const SidebarAside = styled.aside`
    display: grid;
@@ -96,7 +97,48 @@ const SBSubtitle = styled(Subtitle)`
    grid-column: 1/-1;
 `;
 
-const SideBar = props => (
+const Categories = categories => {
+   console.log(
+      "cat: ",
+      categories.categories,
+      trueTypeOf(Array.from(categories)),
+      trueTypeOf(categories)
+   );
+
+   return (
+      categories.categories &&
+      categories.categories.map(category => {
+         console.log("category: ", category);
+
+         return (
+            <div>
+               <input type="checkbox" name={category.name} id={category.id} />
+               <label htmlFor={category.name}>
+                  <span />
+                  {category.name}
+               </label>
+            </div>
+         );
+      })
+   );
+};
+// const Categories = ({ eventbrite }) => {
+//    console.log("event: ", eventbrite);
+
+//    return eventbrite.getCategories().then(result =>
+//       result.categories.categories.map(category => (
+//          <div>
+//             <input type="checkbox" name={category.name} id={category.id} />
+//             <label htmlFor={category.name}>
+//                <span />
+//                {category.name}
+//             </label>
+//          </div>
+//       ))
+//    );
+// };
+
+const SideBar = ({ categories }) => (
    <SidebarAside>
       <LocationArticle>
          <Subtitle>Location</Subtitle>
@@ -109,34 +151,36 @@ const SideBar = props => (
       </LocationArticle>
       <DateArticle>
          <SBSubtitle>Date</SBSubtitle>
-         <label for="from">from</label>
+         <label htmlFor="from">from</label>
          <input type="date" value="1980-08-26" name="from" />
-         <label for="to">to</label>
+         <label htmlFor="to">to</label>
          <input type="date" value="1980-08-26" name="to" />
       </DateArticle>
       <CategoriesArticle>
          <Subtitle>Categories</Subtitle>
-         <div>
+         {/* <div>
             <input type="checkbox" name="name1" id="name1" />
             <label htmlFor="name1">
                <span />
                All
             </label>
-         </div>
-         <div>
-            <input type="checkbox" name="name2" id="name2" />
-            <label htmlFor="name2">
-               <span>&nbsp;</span>
-               Entertainment
-            </label>
-         </div>
-         <div>
-            <input type="checkbox" name="name3" id="name3" />
-            <label htmlFor="name3">
-               <span>&nbsp;</span>
-               Food
-            </label>
-         </div>
+         </div> */}
+         {/* {eventbrite.getCategories().then(result =>
+            result.categories.categories.map(category => (
+               <div>
+                  <input
+                     type="checkbox"
+                     name={category.name}
+                     id={category.id}
+                  />
+                  <label htmlFor={category.name}>
+                     <span />
+                     {category.name}
+                  </label>
+               </div>
+            ))
+         )} */}
+         <Categories categories={categories} />
       </CategoriesArticle>
       {/* {props.children} */}
    </SidebarAside>

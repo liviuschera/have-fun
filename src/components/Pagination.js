@@ -37,19 +37,19 @@ const Pagination = props => {
       <Wrapper>
          <ul>
             <li>
-               <a href="">&#xab;</a>
+               <a href="#">&#xab;</a>
             </li>
             <li>
-               <a href="">1</a>
+               <a href="#">1</a>
             </li>
             <li>
-               <a href="">2</a>
+               <a href="#">2</a>
             </li>
             <li>
-               <a href="">3</a>
+               <a href="#">3</a>
             </li>
             <li>
-               <a href="">&#xbb;</a>
+               <a href="#">&#xbb;</a>
             </li>
          </ul>
          {props.children}

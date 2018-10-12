@@ -8,11 +8,10 @@ import ContentWrapper from "../components/ContentWrapper";
 import MainWrapper from "../components/MainWrapper";
 import NavInfoBar from "../components/NavInfoBar";
 import Pagination from "../components/Pagination";
+import EventBrite from "./eventbrite";
 
 const Wrapper = styled.div`
    display: grid;
-
-   /* grid-template-rows: var(--header-height); */
    grid-template-columns: repeat(2, 1fr);
    align-content: flex-start;
    margin: 0 auto;
@@ -21,12 +20,22 @@ const Wrapper = styled.div`
    background-color: var(--color-grey-light-1);
 `;
 
-class App extends Component {
+export default class App extends Component {
+   state = { categories: [] };
+   eventbrite = new EventBrite();
+
+   componentDidMount() {
+      this.eventbrite.getCategories().then(({ categories: { categories } }) => {
+         console.log("inside didmount: ", categories);
+         this.setState({ categories: categories });
+      });
+   }
+
    render() {
       return (
          <Wrapper>
             <Header>Logo</Header>
-            <SideBar />
+            <SideBar categories={this.state.categories} />
             <MainWrapper>
                <NavInfoBar>NavBar</NavInfoBar>
                <ContentWrapper>
@@ -40,5 +49,3 @@ class App extends Component {
       );
    }
 }
-
-export default App;
