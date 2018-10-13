@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Subtitle } from "./typography";
 import { inputSelectField } from "../components/sharedStyles";
-import { trueTypeOf } from "./utils";
+import { getType } from "./utils";
 
 const SidebarAside = styled.aside`
    display: grid;
@@ -98,17 +98,12 @@ const SBSubtitle = styled(Subtitle)`
 `;
 
 const Categories = categories => {
-   console.log(
-      "cat: ",
-      categories.categories,
-      trueTypeOf(Array.from(categories)),
-      trueTypeOf(categories)
-   );
+   const slicedCategories = categories.categories.slice(0, 5);
 
    return (
       categories.categories &&
-      categories.categories.map(category => {
-         console.log("category: ", category);
+      slicedCategories.map(category => {
+         console.log("category: ", getType(category));
 
          return (
             <div>
@@ -122,21 +117,6 @@ const Categories = categories => {
       })
    );
 };
-// const Categories = ({ eventbrite }) => {
-//    console.log("event: ", eventbrite);
-
-//    return eventbrite.getCategories().then(result =>
-//       result.categories.categories.map(category => (
-//          <div>
-//             <input type="checkbox" name={category.name} id={category.id} />
-//             <label htmlFor={category.name}>
-//                <span />
-//                {category.name}
-//             </label>
-//          </div>
-//       ))
-//    );
-// };
 
 const SideBar = ({ categories }) => (
    <SidebarAside>
@@ -158,28 +138,6 @@ const SideBar = ({ categories }) => (
       </DateArticle>
       <CategoriesArticle>
          <Subtitle>Categories</Subtitle>
-         {/* <div>
-            <input type="checkbox" name="name1" id="name1" />
-            <label htmlFor="name1">
-               <span />
-               All
-            </label>
-         </div> */}
-         {/* {eventbrite.getCategories().then(result =>
-            result.categories.categories.map(category => (
-               <div>
-                  <input
-                     type="checkbox"
-                     name={category.name}
-                     id={category.id}
-                  />
-                  <label htmlFor={category.name}>
-                     <span />
-                     {category.name}
-                  </label>
-               </div>
-            ))
-         )} */}
          <Categories categories={categories} />
       </CategoriesArticle>
       {/* {props.children} */}
