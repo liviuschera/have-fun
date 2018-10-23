@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import logo from "../images/logo@2x.png";
 import sprite from "../images/sprite.svg";
+import EventBrite from "./eventbrite";
 
 const HeaderDiv = styled.header`
    display: inline-grid;
@@ -34,6 +35,7 @@ const HeaderDiv = styled.header`
          height: 2.5rem;
          width: 2.5rem;
          top: -0.5rem;
+         cursor: pointer;
 
          svg {
             height: inherit;
@@ -63,19 +65,51 @@ const HeaderDiv = styled.header`
    }
 `;
 
-const Header = props => (
-   <HeaderDiv>
-      <img src={logo} alt="Have Fun logo" />
-      <form action="#">
-         <button>
-            <svg>
-               <use xlinkHref={`${sprite}#icon-magnifier`} />
-            </svg>
-         </button>
-         <input type="text" placeholder="Explore your own activities" />
-      </form>
-      {/* {props.children} */}
-   </HeaderDiv>
-);
+const eventbrite = new EventBrite();
+
+class Header extends React.Component {
+   state = { inputSearchValue: "" };
+
+   handleSubmit = event => {
+      alert("Submit button pressed");
+      event.preventDefault();
+      this.state.inputSearchValue &&
+         this.eventbrite.searchEvents(this.state.inputSearchValue);
+   };
+
+   handleSearchInput = event => {
+      this.setState({ inputSearchValue: event.target.value.toLowerCase() });
+   };
+
+   // componentDidMount(){
+   //    this.eventbrite.searchEvents(this.state.inputSearchValue)
+   // }
+
+   render() {
+      return (
+         <HeaderDiv>
+            <img src={logo} alt="Have Fun logo" />
+            <form onSubmit={this.handleSubmit} action="#">
+               <button
+                  type="submit"
+                  // onClick={() => this.handleSubmit()}
+                  // onClick={() => eventbrite.searchEvents()}
+               >
+                  <svg>
+                     <use xlinkHref={`${sprite}#icon-magnifier`} />
+                  </svg>
+               </button>
+               <input
+                  type="text"
+                  value={this.state.inputSearchValue}
+                  onChange={this.handleSearchInput}
+                  placeholder="Search for City and/or Event"
+               />
+            </form>
+            {/* {props.children} */}
+         </HeaderDiv>
+      );
+   }
+}
 
 export default Header;

@@ -106,7 +106,7 @@ const Categories = categories => {
          console.log("category: ", getType(category));
 
          return (
-            <div>
+            <div key={category.id}>
                <input type="checkbox" name={category.name} id={category.id} />
                <label htmlFor={category.name}>
                   <span />

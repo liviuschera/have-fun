@@ -14,4 +14,20 @@ export default class EventBrite {
 
       return { categories };
    }
+
+   // Search for Events by their name or the location
+   async searchEvents(searchParams) {
+      // fetch the Events info
+      const getResults = await fetch(
+         `https://www.eventbriteapi.com/v3/events/search/?q=${searchParams}&token=${
+            this.tokenAuth
+         }`
+      );
+      // convert data into json format
+      const data = await getResults.json();
+
+      console.log("searching...", data);
+
+      return { data };
+   }
 }

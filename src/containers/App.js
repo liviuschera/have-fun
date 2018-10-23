@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import "./App.css";
-import Header from "../components/Header";
+import Header from "./Header";
 import SideBar from "../components/SideBar";
 import Card from "../components/Card";
 import ContentWrapper from "../components/ContentWrapper";
